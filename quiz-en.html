@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adidas Neurodiversity Week - Quiz</title>
+    <style>
+        body {
+            font-family: 'Adineue', 'Helvetica', Arial, sans-serif; /* 修改字体 */
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #FF6B00, #FF69B4, #FFD700);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-family: 'Adineue', 'Helvetica', Arial, sans-serif; /* 修改字体 */
+            color: white;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 0.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            background-color: white;
+            padding: 5rem; /* 减少 padding */
+            border-radius: 20px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .content {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .question {
+            font-family: 'Adineue', 'Helvetica', Arial, sans-serif; /* 修改字体 */
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #FF6B00;
+            margin-bottom: 1em;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5em;
+            margin-top: 2em;
+        }
+        .btn {
+            font-family: 'Adineue', 'Helvetica', Arial, sans-serif; /* 修改字体 */
+            display: inline-block;
+            padding: 15px 30px;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1.2em;
+            width: 80%;
+            max-width: 300px;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        .btn-option {
+            background-color: #FF69B4; /* 粉色用于选项按钮 */
+        }
+        .btn-option:hover {
+            background-color: #FF1493; /* 深粉色作为悬停效果 */
+        }
+        .btn-next {
+            background-color: #FF6B00;
+            display: none;
+            margin-top: 2em;
+            transition: all 0.3s ease;
+        }
+        .btn-next:hover {
+            background-color: #FF4500; /* 深橙色作为悬停效果 */
+            transform: scale(1.05);
+        }
+        .feedback {
+            font-family: 'Adineue', 'Helvetica', Arial, sans-serif; /* 修改字体 */
+            margin-top: 1em;
+            padding: 1em;
+            border-radius: 5px;
+            display: none;
+            font-size: 1.2em;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .container {
+                width: 95%;
+                padding: 1rem;
+            }
+            .question {
+                font-size: 1.3em;
+            }
+            .btn {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+        }
+        .btn-schedule {
+            background-color: #FF69B4; /* 粉色用于醒目按钮 */
+            font-size: 1.5em;
+            padding: 20px 40px;
+            margin-top: 2em;
+            text-align: center;
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-schedule:hover {
+            background-color: #FF1493; /* 深粉色作为悬停效果 */
+        }
+    </style>
+</head>
+<body>
+    <h1>Neurodiversity Awareness Quiz</h1>
+    <div class="container">
+        <div class="content">
+            <div id="quiz">
+                <!-- Questions will be inserted here by JavaScript -->
+            </div>
+            <div id="feedback" class="feedback"></div>
+            <button id="next" class="btn btn-next">Next Question</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "1. The concept of neurodiversity primarily emphasizes that:",
+                options: ["A) Neurodevelopmental differences are part of human diversity", "B) All neurodevelopmental differences need to be treated"],
+                correct: 0,
+                correctExplanation: "The concept of neurodiversity views neurodevelopmental differences (such as autism, ADHD, etc.) as natural variations in human brain function and cognition, rather than defects that need to be 'fixed'."
+                
+            },
+
+            {
+                question: "2. Does neurodiversity only include autism?",
+                options: ["A) Yes, neurodiversity refers to autism", "B) No, it also includes ADHD, learning disabilities, etc."],
+                correct: 1,
+                correctExplanation: "Neurodiversity is a broad concept that includes autism spectrum disorder, ADHD, learning disabilities, and other neurodevelopmental differences."
+                
+            },
+
+            {
+                question: "3. Is it appropriate to refer to children with autism as 'children of the stars' in China?",
+                options: ["A) No, it may be seen as a form of labeling", "B) Yes, it is a beautified term"],
+                correct: 0,
+                correctExplanation: "Although 'children of the stars' is well-intentioned, many individuals with autism dislike this label, as it romanticizes their condition and overlooks their real needs."
+                
+            },
+
+            {
+                question: "4. Is neurodiversity a 'trendy disorder'?",
+                options: ["A) Yes, it is just a recent term", "B) No, it is a scientific understanding of human brain diversity"],
+                correct: 1,
+                correctExplanation: "Neurodiversity is not a trend or fad, but a scientific understanding of the diversity of human brain function. This concept helps us better understand and accept different neurotypes."
+                
+            },
+
+            {
+                question: "5. Is it appropriate to say 'I am a bit autistic'?",
+                options: ["A) No, it may offend individuals with autism", "B) Yes, it is just a casual expression"],
+                correct: 0,
+                correctExplanation: "This expression trivializes the true meaning of autism and may make individuals with autism feel misunderstood and offended."
+                
+            },            
+
+            {
+                question: "6. Is ADHD (Attention Deficit Hyperactivity Disorder) just 'naughtiness'?",
+                options: ["A) Yes, ADHD is just kids being naughty", "B) No, ADHD is a neurodevelopmental difference"],
+                correct: 1,
+                correctExplanation: "ADHD is a complex neurodevelopmental condition and should not be simply equated with 'naughtiness'. This misunderstanding can lead to mistreatment of individuals with ADHD."
+                
+            },        
+            
+            {
+                question: "7. How should workplace adjustments for neurodiverse employees be viewed?",
+                options: ["A) They are necessary to help employees reach their full potential", "B) They are unnecessary, everyone should be treated the same"],
+                correct: 0,
+                correctExplanation: "Appropriate workplace adjustments (such as reducing distractions, providing quiet workspaces, etc.) can help neurodiverse employees perform better, thereby creating greater value for the company."
+                
+            },              
+
+            {
+                question: "8. Can dyslexia be completely overcome through hard work?",
+                options: ["A) Yes, with enough effort it can be completely overcome", "B) No, but it can be improved with appropriate strategies"],
+                correct: 1,
+                correctExplanation: "Dyslexia is a lifelong condition that cannot be completely overcome through effort alone. However, with appropriate learning strategies, assistive technology, and support, individuals with dyslexia can significantly improve their reading and writing skills."
+                
+            }, 
+
+            {
+                question: "9. Does dyslexia only affect reading in Chinese?",
+                options: ["A) No, it can affect reading in all languages", "B) Yes, it only affects reading in Chinese"],
+                correct: 0,
+                correctExplanation: "Dyslexia is a neurodevelopmental difference that can affect a person's ability to read any language, not just Chinese. However, the characteristics of different languages may cause dyslexia to manifest differently."
+                
+            },  
+            
+            {
+                question: "10. Do all neurodiverse individuals have poor social skills?",
+                options: ["A) Yes, they all have social difficulties", "B) No, social skills vary from person to person"],
+                correct: 1,
+                correctExplanation: "While some neurodiverse individuals may have social difficulties, this does not apply to everyone. Many neurodiverse individuals have excellent social skills."
+                
+            },              
+
+            // Other questions...
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const quiz = document.getElementById('quiz');
+            const question = questions[currentQuestion];
+            quiz.innerHTML = `
+                <div class="question">${question.question}</div>
+                <div class="options">
+                    <button class="btn btn-option" onclick="checkAnswer(0)">${question.options[0]}</button>
+                    <button class="btn btn-option" onclick="checkAnswer(1)">${question.options[1]}</button>
+                </div>
+            `;
+        }
+
+        function checkAnswer(answer) {
+            const question = questions[currentQuestion];
+            const feedback = document.getElementById('feedback');
+            const nextButton = document.getElementById('next');
+
+            if (answer === question.correct) {
+                score++;
+                
+                feedback.className = 'feedback correct';
+            } else {
+                
+                feedback.className = 'feedback incorrect';
+            }
+            feedback.textContent = question.correctExplanation;
+            feedback.style.display = 'block';
+            nextButton.style.display = 'block';
+        }
+
+        document.getElementById('next').addEventListener('click', () => {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+                document.getElementById('feedback').style.display = 'none';
+                document.getElementById('next').style.display = 'none';
+            } else {
+                showResult();
+            }
+        });
+
+        function showResult() {
+            const container = document.querySelector('.container');
+            const totalScore = Math.min(score * 10, 100); // Limit total score to a maximum of 100
+            const totalQuestions = questions.length;
+            const maxScore = 100; // Total score fixed at 100
+            let feedback = '';
+            if (totalScore === maxScore) {
+                feedback = `Congratulations on answering all the questions correctly!<br><br>
+                Your level of understanding of neurodiversity is impressive, surpassing that of most people.<br><br>
+                To further expand your insights, we sincerely invite you to explore the neurodiversity knowledge cards in the sensory pack.<br><br>
+                These cards will reveal more valuable information on how to support and appreciate neurodiversity in your daily work. Let's work together to create a workplace that truly respects everyone's uniqueness!`;
+            } else {
+                feedback = `Thank you for completing this questionnaire!<br><br>
+                Your participation reflects a passion for understanding neurodiversity. Everyone's learning journey is unique, and you have taken an important step.<br><br>
+                To deepen your understanding, we sincerely recommend exploring the neurodiversity knowledge cards in the sensory pack. These carefully designed cards will open up new perspectives for you, helping you better recognize, understand, and support neurodiversity in the workplace.<br><br>
+                Remember, every learning experience is an opportunity to move towards a more inclusive future. Let's continue this exciting journey of exploration together!`;
+            }
+
+            container.innerHTML = `
+                <h1 style="font-size: 4em; text-align: center; color: #FF6B00;">Quiz Results</h1>
+                <p style="font-size: 3em; text-align: center;">Your score is: ${totalScore} / ${maxScore}</p>
+                <p>${feedback}</p>
+                <a href="schedule-en.html?score=${totalScore}" class="btn btn-next btn-schedule">View Neurodiversity Week Schedule</a>
+            `;
+
+            // Add button hover effect
+            const scheduleButton = container.querySelector('.btn-next');
+            scheduleButton.style.transition = 'all 0.3s ease';
+            scheduleButton.addEventListener('mouseenter', () => {
+                scheduleButton.style.transform = 'scale(1.05)';
+            });
+            scheduleButton.addEventListener('mouseleave', () => {
+                scheduleButton.style.transform = 'scale(1)';
+            });
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>
