@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿迪达斯神经多样性周 - 测试</title>
+    <style>
+        body {
+            font-family: 'Adineue', 'Helvetica', Arial, sans-serif; /* 修改字体 */
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #FF6B00, #FF69B4, #FFD700);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-family: 'Adineue', 'Helvetica', Arial, sans-serif; /* 修改字体 */
+            color: white;
+            font-size: 2.5em;
+            text-align: center;
+            margin-top: 0em;
+            margin-bottom: 0.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            background-color: white;
+            padding: 5rem; /* 减少 padding */
+            border-radius: 20px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .content {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .question {
+            font-family: 'Adineue', 'Helvetica', Arial, sans-serif; /* 修改字体 */
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #FF6B00;
+            margin-bottom: 1em;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5em;
+            margin-top: 2em;
+        }
+        .btn {
+            font-family: 'Adineue', 'Helvetica', Arial, sans-serif; /* 修改字体 */
+            display: inline-block;
+            padding: 15px 30px;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1.2em;
+            width: 80%;
+            max-width: 300px;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        .btn-option {
+            background-color: #FF69B4; /* 粉色用于选项按钮 */
+        }
+        .btn-option:hover {
+            background-color: #FF1493; /* 深粉色作为悬停效果 */
+        }
+        .btn-next {
+            background-color: #FF6B00;
+            display: none;
+            margin-top: 2em;
+            transition: all 0.3s ease;
+        }
+        .btn-next:hover {
+            background-color: #FF4500; /* 深橙色作为悬停效果 */
+            transform: scale(1.05);
+        }
+        .feedback {
+            font-family: 'Adineue', 'Helvetica', Arial, sans-serif; /* 修改字体 */
+            margin-top: 1em;
+            padding: 1em;
+            border-radius: 5px;
+            display: none;
+            font-size: 1.2em;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .container {
+                width: 95%;
+                padding: 1rem;
+            }
+            .question {
+                font-size: 1.3em;
+            }
+            .btn {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+        }
+        .btn-schedule {
+            background-color: #FF69B4; /* 粉色用于醒目按钮 */
+            font-size: 1.5em;
+            padding: 20px 40px;
+            margin-top: 2em;
+            text-align: center;
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-schedule:hover {
+            background-color: #FF1493; /* 深粉色作为悬停效果 */
+        }
+    </style>
+</head>
+<body>
+    <h1>神经多样性认知测试</h1>
+    <div class="container">
+        <div class="content">
+            <div id="quiz">
+                <!-- Questions will be inserted here by JavaScript -->
+            </div>
+            <div id="feedback" class="feedback"></div>
+            <button id="next" class="btn btn-next">下一题</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "1. 神经多样性的概念主要强调的是：",
+                options: ["A) 神经发展差异是人类多样性的一部分", "B) 所有的神经发展差异都需要被治疗"],
+                correct: 0,
+                correctExplanation: "神经多样性的概念认为神经发展的差异（如孤独症、ADHD等）是人类大脑功能和认知方式自然变异的一部分，而不是需要被'修复'的缺陷。"
+                
+            },
+
+            {
+                question: "2. 神经多样性是否只包括孤独症？",
+                options: ["A) 是的，神经多样性就是指孤独症", "B) 不是，还包括ADHD、学习障碍等多种类型"],
+                correct: 1,
+                correctExplanation: "神经多样性是一个广泛的概念，包括孤独症谱系障碍、ADHD、学习障碍等多种神经发展差异。"
+                
+            },
+
+            {
+                question: "3. 在国内，称呼孤独症儿童为'星星的孩子'是否恰当？",
+                options: ["A) 不恰当，可能被视为一种标签化", "B) 恰当，这是一种美化的说法"],
+                correct: 0,
+                correctExplanation: "虽然'星星的孩子'本意是好的，但许多孤独症者不喜欢这种标签，认为它过于浪漫化而忽视了他们的真实需求。"
+                
+            },
+
+            {
+                question: "4. 神经多样性是否是一种'时尚病'？",
+                options: ["A) 是的，这只是近年来的一种说法", "B) 不是，这是对人类大脑多样性的科学认识"],
+                correct: 1,
+                correctExplanation: "神经多样性不是一种时尚或趋势，而是基于科学研究对人类大脑功能多样性的认识。这个概念帮助我们更好地理解和接纳不同的神经类型。"
+                
+            },
+
+            {
+                question: "5. 当有人说'我有点自闭'时，这种表达是否恰当？",
+                options: ["A) 不恰当，这可能冒犯真正的自闭症者", "B) 恰当，这只是一种口头表达"],
+                correct: 0,
+                correctExplanation: "这种表达轻视了自闭症的真实含义，可能会让真正的自闭症者感到被误解和冒犯。"
+                
+            },            
+
+            {
+                question: "6. ADHD（注意力缺陷多动障碍）是否就是'调皮'？",
+                options: ["A) 是的，ADHD就是孩子太调皮了", "B) 不是，ADHD是一种神经发展差异"],
+                correct: 1,
+                correctExplanation: "ADHD是一种复杂的神经发展状况，不应简单地等同于'调皮'。这种误解可能导致对ADHD个体的错误对待。"
+                
+            },        
+            
+            {
+                question: "7. 如何看待为神经多样性员工提供工作场所调整？",
+                options: ["A) 这是必要的，有助于员工发挥最大潜力", "B) 没有必要，应该一视同仁"],
+                correct: 0,
+                correctExplanation: "适当的工作场所调整（如减少干扰、提供安静的工作空间等）可以帮助神经多样性员工更好地发挥其能力，从而为公司创造更大价值。"
+                
+            },              
+
+            {
+                question: "8. 阅读障碍是否可以通过努力学习来完全克服？",
+                options: ["A) 是的，只要足够努力就能完全克服", "B) 不是，但可以通过适当的策略来改善"],
+                correct: 1,
+                correctExplanation: "阅读障碍是一种终身的状况，无法通过单纯的努力完全克服。然而，通过适当的学习策略、辅助技术和支持，阅读障碍者可以显著改善他们的阅读和写作能力。"
+                
+            }, 
+
+            {
+                question: "9. 阅读障碍是否只影响中文阅读？",
+                options: ["A) 不是，可能影响所有语言的阅读", "B) 是的，只影响中文阅读"],
+                correct: 0,
+                correctExplanation: "阅读障碍是一种神经发展差异，可能影响一个人阅读任何语言的能力，不仅限于中文。然而，不同语言的特点可能导致阅读障碍表现出不同的特征。"
+                
+            },  
+            
+            {
+                question: "10. 神经多样性个体是否都不善于社交？",
+                options: ["A) 是的，他们都有社交障碍", "B) 不是，社交能力因人而异"],
+                correct: 1,
+                correctExplanation: "虽然一些神经多样性个体可能在社交方面有困难，但这并不适用于所有人。许多神经多样性个体有很好的社交能力。"
+                
+            },              
+
+            // 其他问题...
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const quiz = document.getElementById('quiz');
+            const question = questions[currentQuestion];
+            quiz.innerHTML = `
+                <div class="question">${question.question}</div>
+                <div class="options">
+                    <button class="btn btn-option" onclick="checkAnswer(0)">${question.options[0]}</button>
+                    <button class="btn btn-option" onclick="checkAnswer(1)">${question.options[1]}</button>
+                </div>
+            `;
+        }
+
+        function checkAnswer(answer) {
+            const question = questions[currentQuestion];
+            const feedback = document.getElementById('feedback');
+            const nextButton = document.getElementById('next');
+
+            if (answer === question.correct) {
+                score++;
+                
+                feedback.className = 'feedback correct';
+            } else {
+                
+                feedback.className = 'feedback incorrect';
+            }
+            feedback.textContent = question.correctExplanation;
+            feedback.style.display = 'block';
+            nextButton.style.display = 'block';
+        }
+
+        document.getElementById('next').addEventListener('click', () => {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+                document.getElementById('feedback').style.display = 'none';
+                document.getElementById('next').style.display = 'none';
+            } else {
+                showResult();
+            }
+        });
+
+        function showResult() {
+            const container = document.querySelector('.container');
+            const totalScore = Math.min(score * 10, 100); // 限制总分最高为100分
+            const totalQuestions = questions.length;
+            const maxScore = 100; // 总分固定为100分
+            let feedback = '';
+            if (totalScore === maxScore) {
+                feedback = `恭喜您答对全部问题！<br><br>
+                您对神经多样性的认知水平令人印象深刻，超越了大多数人的理解。<br><br>
+                为进一步拓展您的洞察力，我们诚挚邀请您探索感官包中的神经多样性知识卡。<br><br>
+                这些卡片将为您揭示更多关于如何在日常工作中支持和欣赏神经多样性的宝贵信息。让我们携手构建一个真正尊重每个人独特之处的职场！`;
+            } else {
+                feedback = `感谢您完成这份问卷！<br><br>
+                您的参与体现了对理解神经多样性的热忱。每个人的学习旅程都是独一无二的，您已经迈出了重要的一步。<br><br>
+                为了深化您的认知，我们真诚建议您探索感官包中的神经多样性知识卡。这些精心设计的卡片将为您开启全新的视角，帮助您在工作中更好地识别、理解和支持神经多样性。<br><br>
+                记住，每一次学习都是向着更包容的未来迈进的机会。让我们一起继续这个令人兴奋的探索之旅！`;
+            }
+
+            container.innerHTML = `
+                <h1 style="font-size: 4em; text-align: center; color: #FF6B00;">测试结果</h1>
+                <p style="font-size: 3em; text-align: center;">您的得分是：${totalScore} / ${maxScore}</p>
+                <p>${feedback}</p>
+                <a href="schedule-cn.html?score=${totalScore}" class="btn btn-next btn-schedule">查看神经多样性周活动日程</a>
+            `;
+
+            // 添加按钮悬停效果
+            const scheduleButton = container.querySelector('.btn-next');
+            scheduleButton.style.transition = 'all 0.3s ease';
+            scheduleButton.addEventListener('mouseenter', () => {
+                scheduleButton.style.transform = 'scale(1.05)';
+            });
+            scheduleButton.addEventListener('mouseleave', () => {
+                scheduleButton.style.transform = 'scale(1)';
+            });
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>
