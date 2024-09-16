@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -76,4 +77,84 @@
         }
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿迪达斯神经多样性周 - 日程安排</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(45deg, #FF6B00, #FF69B4, #FFD700);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+        .schedule {
+            margin-top: 2rem;
+        }
+        .event {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+        }
+        .event h3 {
+            margin-top: 0;
+            color: #FF69B4;
+        }
+        #quiz-result {
+            text-align: center;
+            padding: 10px;
+            background-color: #f0f0f0;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>阿迪达斯神经多样性周</h1>
+        <h2>日程安排</h2>
+        <div class="schedule">
+            <div class="event">
+                
+                <p>欢迎来到阿迪达斯2024全球包容周!今年我们包容周的主题是:“看见每一个独特的你--神经多样性”。我们的目标是利用这一重要的DEI时刻，拥抱各个神经多样性群体的潜力。
+                    神经多样性描述了人们以多种不同方式体验和与周围世界互动的理念。思维想法、学习和行为方式没有唯一的"正确"的答案，是差异不是缺陷。
+                    在10.22-10.25这一周，我们准备了精彩的活动和丰富的礼品，快快加入我们的"神经多样性”旅程吧 !</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="quiz-result" 
+        <-- 问卷结果摘要将在这里显示 -->
+    </div>
+
+    <script>
+        // 获取URL参数中的得分
+        const urlParams = new URLSearchParams(window.location.search);
+        const score = urlParams.get('score');
+
+        // 如果存在得分，则显示结果摘要
+        if (score) {
+            const quizResult = document.getElementById('quiz-result');
+            quizResult.innerHTML = `<strong>您的神经多样性认知测试得分：${score}/100</strong>`;
+        }
+    </script>
+</body>
+>>>>>>> b1c60503995660f5470fc99480068c627ff1a395
 </html>
