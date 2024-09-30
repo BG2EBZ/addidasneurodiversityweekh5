@@ -21,6 +21,7 @@
             color: white;
             font-size: 2.5em;
             text-align: center;
+            margin-top: 0em;
             margin-bottom: 0.5em;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
@@ -35,21 +36,6 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-        }
-        .accessibility-controls {
-            margin-bottom: 20px;
-        }
-        .accessibility-controls button {
-            margin-right: 10px;
-            padding: 10px;
-            cursor: pointer;
-        }
-        .high-contrast {
-            background-color: #000;
-            color: #fff;
-        }
-        .high-contrast .content {
-            background-color: #333;
         }
         .content {
             width: 100%;
@@ -158,13 +144,6 @@
 <body>
     <h1>神经多样性认知测试</h1>
     <div class="container">
-
-        <div class="accessibility-controls"></div>
-            <button onclick="toggleHighContrast()">切换高对比度</button>
-            <button onclick="changeFontSize(1)">增大字体</button>
-            <button onclick="changeFontSize(-1)">减小字体</button>
-        </div>
-
         <div class="content">
             <div id="quiz">
                 <!-- Questions will be inserted here by JavaScript -->
@@ -172,22 +151,9 @@
             <div id="feedback" class="feedback"></div>
             <button id="next" class="btn btn-next">下一题</button>
         </div>
-
     </div>
 
     <script>
-        let fontSize = 16;
-        let highContrast = false;
-
-        function toggleHighContrast() {
-            highContrast = !highContrast;
-            document.body.classList.toggle('high-contrast');
-        }
-
-        function changeFontSize(change) {
-            fontSize += change;
-            document.body.style.fontSize = fontSize + 'px';
-        }
         const questions = [
             {
                 question: "1. 神经多样性的概念主要强调的是：",
@@ -338,7 +304,7 @@
                 <h1 style="font-size: 4em; text-align: center; color: #FF6B00;">测试结果</h1>
                 <p style="font-size: 3em; text-align: center;">您的得分是：${totalScore} / ${maxScore}</p>
                 <p>${feedback}</p>
-                <a href="schedule.html?score=${totalScore}" class="btn btn-next btn-schedule">查看神经多样性周活动日程</a>
+                <a href="schedule-cn.html?score=${totalScore}" class="btn btn-next btn-schedule">查看神经多样性周活动日程</a>
             `;
 
             // 添加按钮悬停效果

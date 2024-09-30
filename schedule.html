@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .gradient-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg,
+                    #FF69B4, #FF4500, #FFA500, #FFFF00,
+                    #00FFFF, #1E90FF, #8A2BE2, #FF1493);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            z-index: -1; /* 将背景放在底层 */
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        section {
+            margin: 20px;
+            position: relative; /* 确保内容层在背景上面 */
+            z-index: 1; /* 提升内容的层级 */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .svg-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .svg-container img {
+            width: 37%;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="gradient-background"></div>
+
+    <section>
+        <!-- 插入SVG图片 -->
+        <div class="svg-container">
+            <img src="GWOI.svg" alt="神经多样性图片1">
+            <img src="AGENDA.svg" alt="神经多样性图片2">
+            <svg width="90%" height="90%" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"></svg>
+        </div>
+    </section>
+
+</body>
+
+</html>
+
