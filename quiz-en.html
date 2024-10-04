@@ -51,6 +51,9 @@
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
+            display: flex;           /* 添加这行 */
+            flex-direction: column;  /* 添加这行 */
+            align-items: center;     /* 添加这行 */
         }
         .question {
             font-family: 'Adineue Pro';
@@ -86,24 +89,31 @@
         .btn:hover {
             transform: scale(1.05);
         }
+
         .btn-option {
-            background-color: #FF69B4; /* 粉色用于选项按钮 */
+            background-color: #FF69B4; 
+            /* 粉色用于选项按钮 */
         }
-        .btn-option:hover {
-            background-color: #FF1493; /* 深粉色作为悬停效果 */
+        .btn-option:hover {         
+            background-color: #a4daf0;
+            /* 蓝色作为悬停效果 */
         }
         .btn-next {
             background-color: #FF6B00;
             display: none;
             margin-top: 2em;
             transition: all 0.3s ease;
+            margin-left: auto;  /* 添加这行 */
+            margin-right: auto; /* 添加这行 */
         }
         .btn-next:hover {
-            background-color: #FF4500; /* 深橙色作为悬停效果 */
+            background-color: #FF4500; 
+            /* 深橙色作为悬停效果 */
             transform: scale(1.05);
         }
         .feedback {
-            font-family: 'Adineue Pro'; /* 修改字体 */
+            font-family: 'Adineue Pro';
+             /* 修改字体 */
             margin-top: 1em;
             padding: 1em;
             border-radius: 5px;
@@ -154,7 +164,8 @@
             }
         }
         .btn-schedule {
-            background-color: #FF69B4; /* 粉色用于醒目按钮 */
+            background-color: #FF69B4; 
+            /* 粉色用于醒目按钮 */
             font-size: 1.5em;
             padding: 20px 40px;
             margin-top: 2em;
@@ -168,7 +179,8 @@
             transition: background-color 0.3s;
         }
         .btn-schedule:hover {
-            background-color: #FF1493; /* 深粉色作为悬停效果 */
+            background-color: #FF1493;
+            /* 深粉色作为悬停效果 */
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -241,15 +253,20 @@
                 correct: 0,
                 correctExplanation: "The three main symptoms of ADHD are inattention (difficulty focusing), hyperactivity (excessive activity), and impulsivity (lack of self-control). These are the main criteria for diagnosing ADHD. Other options may occur in ADHD patients but are not defining features."
                 
-            },              
+            }, 
 
             {
-                question: "8. Can dyslexia be completely overcome through hard work?",
-                options: ["A) Yes, with enough effort it can be completely overcome", "B) No, but it can be improved with appropriate strategies"],
-                correct: 1,
-                correctExplanation: "Dyslexia is a lifelong condition that cannot be completely overcome through effort alone. However, with appropriate learning strategies, assistive technology, and support, individuals with dyslexia can significantly improve their reading and writing skills."
+                question: "8. Which of the following is not one of the seven major subtypes of learning disabilities?",
+                options: [
+                    "A) Dyslexia", 
+                    "B) Dyscalculia", 
+                    "C) Dyspraxia", 
+                    "D) Visual perceptual/visual motor deficit"
+                ],
+                correct: 2,
+                correctExplanation: "The seven major subtypes of learning disabilities include: dyslexia, dysgraphia, dyscalculia, auditory processing disorder, language processing disorder, nonverbal learning disabilities, and visual perceptual/visual motor deficit. Dyspraxia is a condition characterized by difficulty with muscle control, affecting movement, coordination, and speech, and can impact learning. Dyspraxia is not classified as learning disabilities, but often co-occur with dyslexia, dyscalculia or ADHD."
                 
-            }, 
+            },              
 
             {
                 question: "9. Does dyslexia only affect reading in Chinese?",
@@ -260,10 +277,10 @@
             },  
             
             {
-                question: "10. Which of the following is not one of the seven major subtypes of learning disabilities?",
-                options: ["A) Dyslexia", "B) Dyscalculia", "C) Dyspraxia", "D) Visual perceptual/visual motor deficit"],
-                correct: 2,
-                correctExplanation: "The seven major subtypes of learning disabilities include: dyslexia, dysgraphia, dyscalculia, auditory processing disorder, language processing disorder, nonverbal learning disabilities, and visual perceptual/visual motor deficit. Dyspraxia is a condition characterized by difficulty with muscle control, affecting movement, coordination, and speech, and can impact learning. Dyspraxia is not classified as learning disabilities, but often co-occur with dyslexia, dyscalculia or ADHD."
+                question: "10. Do all neurodivergent individuals have poor social skills?",
+                options: ["A) Yes, they all have social difficulties", "B) No, social skills vary from person to person"],
+                correct: 1,
+                correctExplanation: "While some neurodivergent individuals may have social difficulties, this does not apply to everyone. Many neurodivergent individuals have excellent social skills."
                 
             },              
 

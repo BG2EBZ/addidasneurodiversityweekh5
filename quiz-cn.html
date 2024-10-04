@@ -13,6 +13,7 @@
             font-weight: normal;
             font-style: normal;
         }
+
         body {
             font-family: 'Adineue Pro'; /* 修改字体 */
             margin: 0;
@@ -50,6 +51,9 @@
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
+            display: flex;           /* 添加这行 */
+            flex-direction: column;  /* 添加这行 */
+            align-items: center;     /* 添加这行 */
         }
         .question {
             font-family: 'Adineue Pro';
@@ -91,9 +95,9 @@
             /* 粉色用于选项按钮 */
         }
 
-        .btn-option:hover {
-            background-color: #FF1493;
-            /* 深粉色作为悬停效果 */
+        .btn-option:hover {         
+            background-color: #a4daf0;
+            /* 蓝色作为悬停效果 */
         }
 
         .btn-next {
@@ -101,6 +105,8 @@
             display: none;
             margin-top: 2em;
             transition: all 0.3s ease;
+            margin-left: auto;  /* 添加这行 */
+            margin-right: auto; /* 添加这行 */
         }
 
         .btn-next:hover {
@@ -241,9 +247,9 @@
 
             {
                 question: "5. 当有人说'我有点自闭'时，这种表达是否恰当？",
-                options: ["A) 不恰当，这可能冒犯真正的自闭症者", "B) 恰当，这只是一种口头表达"],
+                options: ["A) 不恰当，这可能冒犯真正的孤独症人士", "B) 恰当，这只是一种口头表达"],
                 correct: 0,
-                correctExplanation: "这种表达视了自闭症的真实含义，可能会让真正��自闭症者感到被误解和冒犯。"
+                correctExplanation: "这种表达轻视了孤独症的真实含义，可能会让真正的孤独症人士感到被误解和冒犯。"
 
             },
 
@@ -267,11 +273,15 @@
             },
 
             {
-                question: "8. 阅读障碍是否可以通过努力学习来完全克服？",
-                options: ["A) 是的，只要足够努力就能完全克服", "B) 不是，但可以通过适当的策略来改善"],
-                correct: 1,
-                correctExplanation: "阅读障碍是一种终身的状况，无法通过单纯的努力完全克服。然而，通过适当的学习策略、辅助技术和支持，阅读障碍者可以显著改善他们的阅读和写作能力。"
-
+                question: "8. 以下哪项不是学习障碍的七大子类型之一？",
+                options: [
+                    "A) 阅读障碍",
+                    "B) 计算障碍",
+                    "C) 运动协调障碍",
+                    "D) 视觉感知障碍"
+                ],
+                correct: 2,
+                correctExplanation: "学习障碍的七大子类型包括：阅读障碍、书写障碍、计算障碍、听觉处理障碍、语言处理障碍、非语言学习障碍、视觉感知障碍。运动协调障碍是一种以肌肉控制困难为特征的疾病，会导致运动和协调和言语问题，并会影响学习。运动障碍不属于学习障碍，但经常与阅读障碍、计算障碍或ADHD同时存在。"
             },
 
             {
@@ -283,15 +293,13 @@
             },
 
             {
-                question: "10. 以下哪项不是学习障碍的七大子类型之一？",
+                question: "10. 神经多样性个体是否都不善于社交？",
                 options: [
-                    "A) 阅读障碍",
-                    "B) 计算障碍",
-                    "C) 运动协调障碍",
-                    "D) 视觉感知障碍"
+                    "A) 是的，他们都有社交障碍",
+                    "B) 不是，社交能力因人而异"
                 ],
-                correct: 2,
-                correctExplanation: "学习障碍的七大子类型包括：阅读障碍、书写障碍、计算障碍、听觉处理障碍、语言处理障碍、非语言学习障碍、视觉感知障碍。运动协调障碍是一种以肌肉控制困难为特征的疾病，会导致运动和协调和言语问题，并会影响学习。运动障碍不属于学习障碍，但经常与阅读障碍、计算障碍或ADHD同时存在。"
+                correct: 1,
+                correctExplanation: "虽然一些神经多样性个体可能在社交方面有困难，但这并不适用于所有人。许多神经多样性个体有很好的社交能力。"
             },
 
             // 其他问题...
